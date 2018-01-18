@@ -30,14 +30,15 @@ public class RVAdapterListRequest extends RecyclerView.Adapter<RVAdapterListRequ
     private Activity mActivity;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView nameItem, mItemDescription;
+        public TextView nameItem, mItemDescription, mItemCom;
         public LinearLayout mItemExpend;
         public CardView mRootItem;
 
         public MyViewHolder(View view) {
             super(view);
             nameItem = (TextView) view.findViewById(R.id.item_title);
-            mItemDescription = (TextView) view.findViewById(R.id.item_description);
+            mItemDescription = (TextView) view.findViewById(R.id.item_status);
+            mItemCom = (TextView) view.findViewById(R.id.item_com_client);
             mItemExpend = (LinearLayout) view.findViewById(R.id.llExpandArea);
             mRootItem = (CardView) view.findViewById(R.id.llCardBack);
         }
@@ -52,7 +53,7 @@ public class RVAdapterListRequest extends RecyclerView.Adapter<RVAdapterListRequ
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.rv_item_openinghours, parent, false);
+                .inflate(R.layout.item_requests, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -60,8 +61,43 @@ public class RVAdapterListRequest extends RecyclerView.Adapter<RVAdapterListRequ
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Req newItem = requests.getReq().get(position);
-        holder.nameItem.setText(Integer.toString(newItem.getFkIdServices()));
-        holder.mItemDescription.setText(newItem.getComClient() + "\n" + Integer.toString(newItem.getState()));
+
+        String requetename = "Steak-Frites";
+        switch (newItem.getFkIdServices()){
+            case 21:
+                requetename = "Steak-Frites";
+                break;
+            case 22:
+                requetename = "Poulet - Patates";
+                break;
+            case 23:
+                requetename = "Salade Caesar";
+                break;
+            case 24:
+                requetename = "Steak Tartare";
+                break;
+        }
+        holder.nameItem.setText(requetename);
+        holder.mItemCom.setText(newItem.getComClient());
+        String status = "En cours";
+        switch (newItem.getState()){
+            case 0:
+                    status = "Emise";
+                    break;
+            case 1:
+                status = "En cours de traitement";
+                    break;
+            case 2:
+                status = "Fini";
+                    break;
+            case 3:
+                status = "Refusée";
+                    break;
+            case 4:
+                status = "Annulée";
+                break;
+        }
+        holder.mItemDescription.setText(status);
         holder.mItemExpend.setVisibility(View.VISIBLE);
         holder.mRootItem.setOnClickListener(new View.OnClickListener() {
             @Override
