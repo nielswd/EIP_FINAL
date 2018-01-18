@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@mipmap/home"
+            android:title="Accueil" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@mipmap/domotic"
+            android:title="Requêtes" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@mipmap/notify_problem"
+            android:title="Messages" />
+        <item
+            android:id="@+id/domo"
+            android:icon="@mipmap/ic_domo"
+            android:title="Domotique" />
+        <item
+            android:id="@+id/golden"
+            android:icon="@mipmap/password_edit"
+            android:title="Livre d'Or" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@mipmap/notify_problem"
+                android:title="Deconnexion" />
+
+    </group>
+
+
+</menu>

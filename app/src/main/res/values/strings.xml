@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EIP</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="serverURLRest">http://212.227.53.116:8080/WSmartgroom/rest/</string>
+
+    <string name="serverURLDomotique">http://86.242.11.197:8080</string>
+</resources>
